@@ -1,0 +1,8 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "8080:5000"  # Map port 5000 in the container to port 8080 on the host
+    volumes:
+      - ./randomized_chart_data.sqlite:/app/randomized_chart_data.sqlite  # Mount the SQLite database into the container
