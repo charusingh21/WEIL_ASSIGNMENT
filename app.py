@@ -140,6 +140,9 @@ def summary_data():
     summary_data = get_summary_data()
     if summary_data is None:
         return jsonify({'error': 'Error fetching summary data'}), 500
+        # Extract column names from the first row of data
+
+    
     
     return jsonify(summary_data), 200
 
