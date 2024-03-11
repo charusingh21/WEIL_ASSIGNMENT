@@ -78,7 +78,7 @@ This code defines a Flask application that serves as an API for accessing data f
 6. **Main Block**: The application is run when the script is executed directly (not imported as a module). The `app.run()` function starts the Flask development server.
 
 **Design Decisions**
-I have not considered the subjects with null values in Unit_Of_Measure based on my intution that at every measurement should have a unit associated with it.
-In the ERROR column there were only 0s and Nulls. That mean either we do not have information regarding the error (NULL) in the measurement or the values were error free (0).  Also,according to problem statement error and warning should not be 1. That means it can either be 0 or None.However, when error and warning were both 0's , the result_status is also null. Possible outcomes for result could be either null or Final. I chose to ignore if result is Null. So only possibility was to
+1. I have not considered the subjects with null values in Unit_Of_Measure based on my intution that at every measurement should have a unit associated with it.
+2. In the ERROR column there were only 0s and Nulls. That mean either we do not have information regarding the error (NULL) in the measurement or the values were error free (0).  Also,according to problem statement error and warning should not be 1. That means it can either be 0 or None.However, when error and warning were both 0's , the result_status is also null. Possible outcomes for result could be either null or Final. I chose to ignore if result is Null. So only possibility was to
 consider null values in ERROR and WARNING columns so that we can have some meaningful result status that is FINAL.
 
