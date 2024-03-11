@@ -1,24 +1,27 @@
+# Project Overview
 This repository contains a Flask API developed to serve data from a SQLite database. The API is containerized using Docker for easier deployment and management.
 
 **Prerequisites**
 Before running the application, make sure you have the following installed on your system:
 
-Docker
-Git
+- Docker
+- Git
 
-1.**Clone this repository to your local machine**:
+# Installation 
+
+1. **Clone this repository to your local machine**:
 git clone https://github.com/charusingh21/Weil_ML_Challenge.git
-2.**Navigate to the project directory**:
+2. **Navigate to the project directory**:
 cd Weil_ML_Challenge
 
 **TASK 1** 
-1.Run the `run_app.sh` script by executing the following command:
-./run_app.sh
-2.Once the application is running,you can access it by visiting http://localhost:5000 in your web browse
+1. Run the `run_app.sh` script by executing the following command:
+- ./run_app.sh
+2. Once the application is running,you can access it by visiting http://localhost:5000 in your web browse
 
 **TASK 2**
 Run the `build_image.sh` script by executing the following command:
-./build_image.
+- ./build_image.
 Once the application is running,you can access it by visiting http://localhost:8080 in your web browse
 
 **Usage**
@@ -28,23 +31,23 @@ The API provides the following endpoints:
 /summary_data: Retrieves summary data from the database using a SQL query.
 /summary_data_pandas: Retrieves summary data processed using pandas.
 Example cURL commands:
-# Retrieve chart data using ID number, following command will return data for ID's 1,2 and 3
+**Retrieve chart data using ID number, following command will return data for ID's 1,2 and 3**
 curl -X GET "http://localhost:8080/chart_data?ids=1,2,3" -H "accept: application/json"
 
-# Retrieve summary data
+ **Retrieve summary data**
 curl -X GET "http://localhost:8080/summary_data" -H "accept: application/json"
 
-# Retrieve summary data using pandas
+**Retrieve summary data using pandas**
 curl -X GET "http://localhost:8080/summary_data_pandas" -H "accept: application/json"
 
 **Project Structure**
-app.py: Main Flask application code.
-Dockerfile: Instructions for building the Docker image.
-docker-compose.yml: Configuration for Docker Compose.
-requirements.txt: List of Python dependencies.
-randomized_chart_data.sqlite: SQLite database file.
-run_app.sh: Bash script to run the Flask application.
-query_api.sh: Bash script with sample cURL commands to query the API.
+- app.py: Main Flask application code.
+- Dockerfile: Instructions for building the Docker image.
+- docker-compose.yml: Configuration for Docker Compose.
+- requirements.txt: List of Python dependencies.
+- randomized_chart_data.sqlite: SQLite database file.
+- run_app.sh: Bash script to run the Flask application.
+- query_api.sh: Bash script with sample cURL commands to query the API.
 
 
 This code defines a Flask application that serves as an API for accessing data from a SQLite database and performing various operations on it. Let's break down the code and understand how it works:
@@ -75,6 +78,7 @@ This code defines a Flask application that serves as an API for accessing data f
 6. **Main Block**: The application is run when the script is executed directly (not imported as a module). The `app.run()` function starts the Flask development server.
 
 **Design Decisions**
-I have not considered the subjects which the null values in Unit_Of_Measure that's because the
-Also, error and warning should not be 1. That it can either be 0 or None. But when error and warning were both 0's , the result_status is also null. Possible outcomes for result could be either null or Final. It doesn't make sense to me if result is Null so I considered null values in ERROR and WARNING columns. 
+I have not considered the subjects with null values in Unit_Of_Measure based on my intution that at every measurement should have a unit associated with it.
+In the ERROR column there were only 0s and Nulls. That mean either we do not have information regarding the error (NULL) in the measurement or the values were error free (0).  Also,according to problem statement error and warning should not be 1. That means it can either be 0 or None.However, when error and warning were both 0's , the result_status is also null. Possible outcomes for result could be either null or Final. I chose to ignore if result is Null. So only possibility was to
+consider null values in ERROR and WARNING columns so that we can have some meaningful result status that is FINAL.
 
