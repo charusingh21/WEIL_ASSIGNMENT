@@ -30,8 +30,13 @@ def get_chart_data(ids):
     WHERE Chart_Data.Id IN ({ids_str});
     """
     cursor.execute(query)
-    data = cursor.fetchall()
+    #data = cursor.fetchall()
+    rows = cursor.fetchall()
     conn.close()
+    column_names = [description[0] for description in cursor.description]
+    data = []
+    for row in rows:
+        data.append(dict(zip(column_names, row)))
     return data
 
 # Function to fetch summary data
@@ -45,7 +50,10 @@ def get_summary_data():
                COUNT(*) AS Num_Records,
                COUNT(DISTINCT Chart_Data.SUBJECT_ID) AS Num_Admissions,
                MIN(Chart_Data.VALUENUM) AS Min_Value, 
-               MAX(Chart_Data.VALUENUM) AS Max_Value
+               MAX(Chart_Data.VALUENUM) AS Max_Value,
+               Chart_Data.ERROR,
+               Chart_Data.WARNING
+            
         FROM Chart_Data
         JOIN Observation_Type ON Chart_Data.Observation_Type_Id = Observation_Type.Id
         JOIN Unit_Of_Measure ON Chart_Data.Unit_Of_Measure_Id = Unit_Of_Measure.Id
@@ -56,8 +64,14 @@ def get_summary_data():
         """
         cursor = conn.cursor()
         cursor.execute(query)
-        data = cursor.fetchall()
+        #data = cursor.fetchall()
+        rows = cursor.fetchall()
         conn.close()
+
+        column_names = [description[0] for description in cursor.description]
+        data = []
+        for row in rows:
+            data.append(dict(zip(column_names, row)))
         return data
     except Exception as e:
         print("Error:", e)
@@ -117,6 +131,8 @@ def chart_data():
         return jsonify({'error': 'No data found for provided IDs'}), 404
     
     return jsonify(chart_data), 200
+
+
 
 # Endpoint to handle requests for summary data
 @app.route('/summary_data', methods=['GET'])
