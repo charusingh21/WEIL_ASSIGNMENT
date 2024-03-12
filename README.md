@@ -27,11 +27,11 @@ Before running the application, make sure you have the following installed on yo
 2. Once the application is running,you can access it by visiting http://localhost:5000 in your web browse
 
 **TASK 2**
-Run the `build_image.sh` script by executing the following command:
-
-     ```bash
-     ./build_image.sh
-     ```
+   Run the `build_image.sh` script by executing the following command:
+   ```bash
+   ./run_app.sh
+   ```
+   
 Once the application is running,you can access it by visiting http://localhost:8080 in your web browse
 
 **Usage**
