@@ -16,7 +16,10 @@ cd Weil_ML_Challenge
 
 **TASK 1** 
 1. Run the `run_app.sh` script by executing the following command:
-- ./run_app.sh
+   ```bash
+./run_app.sh
+```
+
 2. Once the application is running,you can access it by visiting http://localhost:5000 in your web browse
 
 **TASK 2**
