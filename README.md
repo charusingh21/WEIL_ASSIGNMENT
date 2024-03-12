@@ -29,7 +29,7 @@ Before running the application, make sure you have the following installed on yo
 **TASK 2**
    Run the `build_image.sh` script by executing the following command:
    ```bash
-   ./run_app.sh
+   ./build_image.sh
    ```
    
 Once the application is running,you can access it by visiting http://localhost:8080 in your web browse
