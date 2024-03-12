@@ -24,7 +24,7 @@ cd Weil_ML_Challenge
 
 **TASK 2**
 Run the `build_image.sh` script by executing the following command:
-- ./build_image.sh
+
   ```bash
   ./build_image.sh
   ```
@@ -39,13 +39,19 @@ The API provides the following endpoints:
 
 **Example cURL commands**:
 **Retrieve chart data using ID number, following command will return data for ID's 1,2 and 3**
+```
 - curl -X GET "http://localhost:8080/chart_data?ids=1,2,3" -H "accept: application/json"
+```
 
  **Retrieve summary data**
+ ```
 - curl -X GET "http://localhost:8080/summary_data" -H "accept: application/json"
+ ```
 
 **Retrieve summary data using pandas**
+```
 - curl -X GET "http://localhost:8080/summary_data_pandas" -H "accept: application/json"
+```
 
 **Project Structure**
 - app.py: Main Flask application code.
