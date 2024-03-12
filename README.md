@@ -25,6 +25,9 @@ cd Weil_ML_Challenge
 **TASK 2**
 Run the `build_image.sh` script by executing the following command:
 - ./build_image.sh
+  ```bash
+  ./build_image.sh
+  ```
 Once the application is running,you can access it by visiting http://localhost:8080 in your web browse
 
 **Usage**
