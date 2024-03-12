@@ -12,7 +12,7 @@ Before running the application, make sure you have the following installed on yo
 1. **Clone this repository to your local machine**:
 git clone https://github.com/charusingh21/Weil_ML_Challenge.git
 2. **Navigate to the project directory**:
-cd Weil_ML_Challenge
+ 'cd Weil_ML_Challenge'
 
 **TASK 1** 
 1. Run the `run_app.sh` script by executing the following command:
@@ -25,9 +25,9 @@ cd Weil_ML_Challenge
 **TASK 2**
 Run the `build_image.sh` script by executing the following command:
 
-  ```bash
-  ./build_image.sh
-  ```
+     ```bash
+     ./build_image.sh
+     ```
 Once the application is running,you can access it by visiting http://localhost:8080 in your web browse
 
 **Usage**
