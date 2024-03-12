@@ -10,7 +10,7 @@ Before running the application, make sure you have the following installed on yo
 # Installation 
 
 1. **Clone this repository to your local machine**:
-'git clone https://github.com/charusingh21/Weil_ML_Challenge.git'
+git clone https://github.com/charusingh21/Weil_ML_Challenge.git
 2. **Navigate to the project directory**:
 cd Weil_ML_Challenge
 
